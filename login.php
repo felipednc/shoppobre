@@ -4,7 +4,7 @@ require 'config.php';
 require 'models/auth.php';
 
 $auth = new Auth($pdo, $base);
-
+$userInfo = $auth->checkToken();
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,7 @@ $auth = new Auth($pdo, $base);
                 <a href="<?=$base?>index.php">
                     <li><button class="btn btn-warning " style="background-color:#fd7e14 ; color:white; " data-bs-toggle="modal" data-bs-target="#loginModal">Pagina Inicial</button></li>
                 </a>
-                <li><button class="btn btn-warning" style="background-color:#fd7e14 ;color:white; " data-bs-toggle="modal" data-bs-target="#loginModal">Login</button></li>
-                <div class="border"></div>
-                <li><button type="button" style="color:white;" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#Cad_modal">Cadastro</button></li>
+                <li>Seja bem vindo!!</li>
             </ul>
         </nav>
     </header>
@@ -47,7 +45,7 @@ $auth = new Auth($pdo, $base);
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
                 </li>
-                <button type="button" class="shop_carrinho" id="liveToastBtn" style="position:relative; right:-500px;  background-color:transparent; border:none;">
+                <button type="button" class="shop_carrinho" id="offcanvasRight" style="position:relative; right:-500px;  background-color:transparent; border:none;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                     </svg>

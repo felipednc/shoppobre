@@ -77,3 +77,7 @@
     background-size: contain;
     background-image: url(/assets/image/cart-fill.svg);
 }
+
+#login_areass {
+    color: white;
+}
