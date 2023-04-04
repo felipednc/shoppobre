@@ -317,7 +317,7 @@ $auth = new Auth($pdo, $base);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="login.php">
+                    <form method="POST" action="<?=$base?>login.php">
                         <div class="mb-3">
                             <label for="InputCPF" class="form-label">CPF:</label>
                             <input type="cpf" maxlength="100" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
