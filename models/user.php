@@ -18,4 +18,8 @@ class User {
 }
 interface UserDAO {
     public function findByToken ($token);
+    public function insert(User $u);
+    public function findByEmail($email);
+    public function findByCpf($cpf);
+    public function update(User $u);
 }

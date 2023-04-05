@@ -42,4 +42,101 @@ class UserDaoMysql implements UserDAO {
         }
         return false;
     }
+
+
+    public function findByCpf($cpf){
+        if(!empty($cpf)) {
+            $sql = $this->pdo->prepare("SELECT * FROM usuario WHERE cpf = :cpf");
+            $sql->bindValue(':cpf', $cpf);
+            $sql->execute();
+        
+            if($sql->rowCount() > 0) {
+                $data = $sql->fetch(PDO::FETCH_ASSOC);
+                $user = $this->generateUser($data);
+                return $user;
+            }
+        }
+        return false;
+    }
+
+    public function findByEmail($email){
+        if(!empty($email)) {
+            $sql = $this->pdo->prepare("SELECT * FROM usuario WHERE email = :email");
+            $sql->bindValue(':email', $email);
+            $sql->execute();
+        
+            if($sql->rowCount() > 0) {
+                $data = $sql->fetch(PDO::FETCH_ASSOC);
+                $user = $this->generateUser($data);
+                return $user;
+            }
+        }
+        return false;
+    }
+
+    public function update(User $u) {
+        $sql = $this->pdo->prepare("UPDATE usuario SET 
+
+        nome = :nome,
+        sobrenome = :sobrenome,
+        cpf = :cpf,
+        senha = :senha,
+        email = :email,
+        idade = :idade,
+        cep = :cep,
+        endereco = :endereco,
+        numero = :numero,
+        cidade = :cidade,
+        bairro = :bairro,
+        estado = :estado,
+        token = :token
+        WHERE id = :id");
+
+        $sql->bindValue(':cpf', $u->cpf);
+        $sql->bindValue(':senha', $u->senha);
+        $sql->bindValue(':email', $u->email);
+        $sql->bindValue(':nome', $u->nome);
+        $sql->bindValue(':sobrenome', $u->sobrenome);
+        $sql->bindValue(':idade', $u->idade);
+        $sql->bindValue(':cep', $u->cep);
+        $sql->bindValue(':endereco', $u->endereco);
+        $sql->bindValue(':numero', $u->numero);
+        $sql->bindValue(':id', $u->id);
+        $sql->bindValue(':cidade', $u->cidade);
+        $sql->bindValue(':bairro', $u->bairro);
+        $sql->bindValue(':estado', $u->estado);
+        $sql->bindValue(':token', $u->token);
+        $sql->execute();
+
+        return true;
+
+
+    }
+
+    public function insert(User $u) {
+        $sql =$this->pdo->prepare("INSERT INTO usuario (
+        nome, sobrenome,  cpf, senha, email,  idade,  cep, endereco,  numero,  cidade, bairro, estado, token
+        ) VALUES (
+        :nome, :sobrenome, :cpf, :senha, :email, :idade, :cep, :endereco, :numero, :cidade, :bairro, :estado, :token
+        )");
+
+        $sql->bindValue(':nome', $u->nome);
+        $sql->bindValue(':sobrenome', $u->sobrenome);
+        $sql->bindValue(':cpf', $u->cpf);
+        $sql->bindValue(':senha', $u->senha);
+        $sql->bindValue(':idade', $u->idade);
+        $sql->bindValue(':endereco', $u->endereco);
+        $sql->bindValue(':cep', $u->cep);
+        $sql->bindValue(':numero', $u->numero);
+        $sql->bindValue(':cidade', $u->cidade);
+        $sql->bindValue(':bairro', $u->bairro);
+        $sql->bindValue(':estado', $u->estado);
+        $sql->bindValue(':token', $u->token);
+        $sql->execute();
+        
+        return true;
+
+    }
+
+
 }

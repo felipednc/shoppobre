@@ -318,12 +318,12 @@ $userInfo = $auth->checkToken();
                     <form method="POST" action="login.php">
                         <div class="mb-3">
                             <label for="InputCPF" class="form-label">CPF:</label>
-                            <input type="cpf" maxlength="100" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="cpf" name="cpf" maxlength="100" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                         </div>
                         <div class="mb-3">
                             <label for="InputPassword" class="form-label">Senha:</label>
-                            <input type="password" class="form-control" id="InputPassword">
+                            <input type="password" name="senha" class="form-control" id="InputPassword">
                             <div id="emailHelp" class="form-text">Nunca compartilhe sua senha com ninguém.</div>
                         </div>
                         <div class="mb-3 form-check">

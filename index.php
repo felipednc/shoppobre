@@ -317,15 +317,15 @@ $auth = new Auth($pdo, $base);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="<?=$base?>login.php">
+                    <form method="POST" action="<?=$base?>login_action.php">
                         <div class="mb-3">
-                            <label for="InputCPF" class="form-label">CPF:</label>
-                            <input type="cpf" maxlength="100" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="cpf" class="form-label">CPF:</label>
+                            <input type="cpf" name="cpf" maxlength="100" class="form-control" id="cpf" aria-describedby="emailHelp">
 
                         </div>
                         <div class="mb-3">
-                            <label for="InputPassword" class="form-label">Senha:</label>
-                            <input type="password" class="form-control" id="InputPassword">
+                            <label for="senha" class="form-label">Senha:</label>
+                            <input type="password" name="senha" class="form-control" id="senha">
                             <div id="emailHelp" class="form-text">Nunca compartilhe sua senha com ninguém.</div>
                         </div>
                         <div class="mb-3 form-check">
